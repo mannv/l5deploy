@@ -7,6 +7,42 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
+set :deploy_to, '/var/capistrano/master'
+set :branch, 'master'
+
+namespace :deploy do	
+	before :starting, :vaihang do
+		on roles(:app) do
+  			ENV['SERVER_TIMESTEMP'] = Time.now.to_i.to_s		
+			print "----------- GET TIMESTEMP ON PHP SERVER ------------\n"
+			print "SERVER_TIMESTEMP: #{ENV['SERVER_TIMESTEMP']}\n"
+			print "----------- GET TIMESTEMP ON PHP SERVER ------------\n"		
+		end
+  	end
+
+	before :"symlink:release", :run_composer do
+		on roles(:app) do
+			print "--------- symlink .env file to release directory ------"	
+			execute "cp /var/capistrano/.env #{release_path}/.env"
+			print "SERVER_TIMESTEMP: #{ENV['SERVER_TIMESTEMP']}\n"
+			print "----------- RUN COMPOSER INSTALL -----------\n"			
+			execute "cd #{release_path}; composer install --no-dev"			
+			print "----------- END COMPOSER INSTALL -----------\n"
+			execute "chmod 0777 #{release_path}/storage"
+		end
+	end
+
+	after :finishing, :notify do
+		on roles(:app) do
+		print "----------- SEND NOTIFICATION TO CHATWORK -----------\n"
+		# system("ln -s /var/capistrano/.env #{release_path}/.env")
+		end
+	end
+
+end
+
+server 'php', user: 'root', port: 22, password: '123123', roles: %w{web app db}
+
 
 
 # role-based syntax
@@ -49,13 +85,13 @@
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server "example.com",
-#   user: "user_name",
+# server "php",
+#   user: "root",
 #   roles: %w{web app},
 #   ssh_options: {
-#     user: "user_name", # overrides user setting above
+#     user: "root", # overrides user setting above
 #     keys: %w(/home/user_name/.ssh/id_rsa),
 #     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: "please use keys"
+#     auth_methods: %w(password),
+#     password: "123123"
 #   }
