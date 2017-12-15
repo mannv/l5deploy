@@ -22,8 +22,10 @@ namespace :deploy do
 
 	before :"symlink:release", :run_composer do
 		on roles(:app) do
-			print "--------- symlink .env file to release directory ------"	
+			print "--------- symlink .env file to release directory ------\n"	
 			execute "cp /var/capistrano/.env #{release_path}/.env"
+			print "--------- change asstes version ------\n"
+			execute "sed -i 's/ASSETS_VERSION=*/ASSETS_VERSION=#{ENV['SERVER_TIMESTEMP']}/' #{release_path}/.env"
 			print "SERVER_TIMESTEMP: #{ENV['SERVER_TIMESTEMP']}\n"
 			print "----------- RUN COMPOSER INSTALL -----------\n"			
 			execute "cd #{release_path}; composer install --no-dev"			

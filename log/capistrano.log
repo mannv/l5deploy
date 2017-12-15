@@ -6191,3 +6191,238 @@ Package manifest generated successfully.
   INFO [bdc206fd] Running /usr/bin/env echo "Branch develop (at 5ca0080cc0dab52a5ac381dc65406a2d7e6cea30) deployed as release 20171215073404 by " >> /var/capistrano/staging/revisions.log as root@php
  DEBUG [bdc206fd] Command: cd /var/capistrano/staging/releases && /usr/bin/env echo "Branch develop (at 5ca0080cc0dab52a5ac381dc65406a2d7e6cea30) deployed as release 20171215073404 by " >> /var/capistrano/staging/revisions.log
   INFO [bdc206fd] Finished in 0.061 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-12-15 09:04:22 +0000 cap develop deyloy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-12-15 09:04:45 +0000 cap develop deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a74a740e] Running /usr/bin/env mkdir -p /tmp as root@php
+ DEBUG [a74a740e] Command: /usr/bin/env mkdir -p /tmp
+  INFO [a74a740e] Finished in 0.211 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-l5jenkins-develop-.sh 0.0%
+  INFO Uploading /tmp/git-ssh-l5jenkins-develop-.sh 100.0%
+  INFO [a3901ebc] Running /usr/bin/env chmod 700 /tmp/git-ssh-l5jenkins-develop-.sh as root@php
+ DEBUG [a3901ebc] Command: /usr/bin/env chmod 700 /tmp/git-ssh-l5jenkins-develop-.sh
+  INFO [a3901ebc] Finished in 0.052 seconds with exit status 0 (successful).
+  INFO [5b82deb5] Running /usr/bin/env git ls-remote git@github.com:mannv/l5jenkins.git HEAD as root@php
+ DEBUG [5b82deb5] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-l5jenkins-develop-.sh" ; /usr/bin/env git ls-remote git@github.com:mannv/l5jenkins.git HEAD )
+ DEBUG [5b82deb5] 	54210cacb81273b63959e52bdcff4d87f8b78497	HEAD
+  INFO [5b82deb5] Finished in 2.277 seconds with exit status 0 (successful).
+  INFO [37ef3824] Running /usr/bin/env mkdir -p /var/capistrano/staging/shared /var/capistrano/staging/releases as root@php
+ DEBUG [37ef3824] Command: /usr/bin/env mkdir -p /var/capistrano/staging/shared /var/capistrano/staging/releases
+  INFO [37ef3824] Finished in 0.012 seconds with exit status 0 (successful).
+ DEBUG [1ac4ae45] Running [ -f /var/capistrano/staging/current/REVISION ] as root@php
+ DEBUG [1ac4ae45] Command: [ -f /var/capistrano/staging/current/REVISION ]
+ DEBUG [1ac4ae45] Finished in 0.058 seconds with exit status 0 (successful).
+ DEBUG [6387cf9b] Running /usr/bin/env cat /var/capistrano/staging/current/REVISION 2>/dev/null as root@php
+ DEBUG [6387cf9b] Command: /usr/bin/env cat /var/capistrano/staging/current/REVISION 2>/dev/null
+ DEBUG [6387cf9b] 	5ca0080cc0dab52a5ac381dc65406a2d7e6cea30
+ DEBUG [6387cf9b] Finished in 0.062 seconds with exit status 0 (successful).
+ DEBUG [d1584596] Running [ -f /var/capistrano/staging/repo/HEAD ] as root@php
+ DEBUG [d1584596] Command: [ -f /var/capistrano/staging/repo/HEAD ]
+ DEBUG [d1584596] Finished in 0.048 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/capistrano/staging/repo
+ DEBUG [4eab2bd3] Running if test ! -d /var/capistrano/staging/repo; then echo "Directory does not exist '/var/capistrano/staging/repo'" 1>&2; false; fi as root@php
+ DEBUG [4eab2bd3] Command: if test ! -d /var/capistrano/staging/repo; then echo "Directory does not exist '/var/capistrano/staging/repo'" 1>&2; false; fi
+ DEBUG [4eab2bd3] Finished in 0.041 seconds with exit status 0 (successful).
+  INFO [5f98e1bb] Running /usr/bin/env git remote set-url origin git@github.com:mannv/l5jenkins.git as root@php
+ DEBUG [5f98e1bb] Command: cd /var/capistrano/staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-l5jenkins-develop-.sh" ; /usr/bin/env git remote set-url origin git@github.com:mannv/l5jenkins.git )
+  INFO [5f98e1bb] Finished in 0.102 seconds with exit status 0 (successful).
+  INFO [676be702] Running /usr/bin/env git remote update --prune as root@php
+ DEBUG [676be702] Command: cd /var/capistrano/staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-l5jenkins-develop-.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [676be702] 	Fetching origin
+ DEBUG [676be702] 	From github.com:mannv/l5jenkins
+   5ca0080..51dcfc4  develop    -> develop
+  INFO [676be702] Finished in 2.761 seconds with exit status 0 (successful).
+ DEBUG [0174cdd5] Running if test ! -d /var/capistrano/staging/repo; then echo "Directory does not exist '/var/capistrano/staging/repo'" 1>&2; false; fi as root@php
+ DEBUG [0174cdd5] Command: if test ! -d /var/capistrano/staging/repo; then echo "Directory does not exist '/var/capistrano/staging/repo'" 1>&2; false; fi
+ DEBUG [0174cdd5] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [80650cc8] Running /usr/bin/env mkdir -p /var/capistrano/staging/releases/20171215090447 as root@php
+ DEBUG [80650cc8] Command: cd /var/capistrano/staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-l5jenkins-develop-.sh" ; /usr/bin/env mkdir -p /var/capistrano/staging/releases/20171215090447 )
+  INFO [80650cc8] Finished in 0.078 seconds with exit status 0 (successful).
+  INFO [0cf2353e] Running /usr/bin/env git archive develop | /usr/bin/env tar -x -f - -C /var/capistrano/staging/releases/20171215090447 as root@php
+ DEBUG [0cf2353e] Command: cd /var/capistrano/staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-l5jenkins-develop-.sh" ; /usr/bin/env git archive develop | /usr/bin/env tar -x -f - -C /var/capistrano/staging/releases/20171215090447 )
+  INFO [0cf2353e] Finished in 0.626 seconds with exit status 0 (successful).
+ DEBUG [09228f8b] Running if test ! -d /var/capistrano/staging/repo; then echo "Directory does not exist '/var/capistrano/staging/repo'" 1>&2; false; fi as root@php
+ DEBUG [09228f8b] Command: if test ! -d /var/capistrano/staging/repo; then echo "Directory does not exist '/var/capistrano/staging/repo'" 1>&2; false; fi
+ DEBUG [09228f8b] Finished in 0.049 seconds with exit status 0 (successful).
+ DEBUG [bccc5e80] Running /usr/bin/env git rev-list --max-count=1 develop as root@php
+ DEBUG [bccc5e80] Command: cd /var/capistrano/staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-l5jenkins-develop-.sh" ; /usr/bin/env git rev-list --max-count=1 develop )
+ DEBUG [bccc5e80] 	51dcfc4fa35a0c2d7c1bfa4148d18f70b243eea0
+ DEBUG [bccc5e80] Finished in 0.094 seconds with exit status 0 (successful).
+ DEBUG [5037bef9] Running if test ! -d /var/capistrano/staging/releases/20171215090447; then echo "Directory does not exist '/var/capistrano/staging/releases/20171215090447'" 1>&2; false; fi as root@php
+ DEBUG [5037bef9] Command: if test ! -d /var/capistrano/staging/releases/20171215090447; then echo "Directory does not exist '/var/capistrano/staging/releases/20171215090447'" 1>&2; false; fi
+ DEBUG [5037bef9] Finished in 0.048 seconds with exit status 0 (successful).
+  INFO [7eb86d55] Running /usr/bin/env echo "51dcfc4fa35a0c2d7c1bfa4148d18f70b243eea0" >> REVISION as root@php
+ DEBUG [7eb86d55] Command: cd /var/capistrano/staging/releases/20171215090447 && /usr/bin/env echo "51dcfc4fa35a0c2d7c1bfa4148d18f70b243eea0" >> REVISION
+  INFO [7eb86d55] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [7997b7f0] Running cp /var/capistrano/.env /var/capistrano/staging/releases/20171215090447/.env as root@php
+ DEBUG [7997b7f0] Command: cp /var/capistrano/.env /var/capistrano/staging/releases/20171215090447/.env
+  INFO [7997b7f0] Finished in 0.050 seconds with exit status 0 (successful).
+  INFO [716f5074] Running sed -i 's/ASSETS_VERSION=*/ASSETS_VERSION=1513328685/' /var/capistrano/staging/releases/20171215090447/.env as root@php
+ DEBUG [716f5074] Command: sed -i 's/ASSETS_VERSION=*/ASSETS_VERSION=1513328685/' /var/capistrano/staging/releases/20171215090447/.env
+  INFO [716f5074] Finished in 0.101 seconds with exit status 0 (successful).
+  INFO [57753d4a] Running cd /var/capistrano/staging/releases/20171215090447; composer install --no-dev as root@php
+ DEBUG [57753d4a] Command: cd /var/capistrano/staging/releases/20171215090447; composer install --no-dev
+ DEBUG [57753d4a] 	Do not run Composer as root/super user! See https://getcomposer.org/root for details
+ DEBUG [57753d4a] 	Loading composer repositories with package information
+ DEBUG [57753d4a] 	Installing dependencies from lock file
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	Package operations: 37 installs, 0 updates, 0 removals
+ DEBUG [57753d4a] 	  - Installing doctrine/inflector (v1.2.0): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing doctrine/lexer (v1.0.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing erusev/parsedown (1.6.4): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing vlucas/phpdotenv (v2.4.0): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/css-selector (v3.4.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing tijsverkoyen/css-to-inline-styles (2.2.0): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/polyfill-mbstring (v1.6.0): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/var-dumper (v3.4.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/routing (v3.4.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/process (v3.4.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing paragonie/random_compat (v2.0.11): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/polyfill-php70 (v1.6.0): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/http-foundation (v3.4.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/event-dispatcher (v4.0.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing psr/log (1.0.2): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/debug (v3.4.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/http-kernel (v3.4.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/finder (v3.4.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/console (v3.4.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing egulias/email-validator (2.1.3): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing swiftmailer/swiftmailer (v6.0.2): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing ramsey/uuid (3.7.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing psr/simple-cache (1.0.0): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing psr/container (1.0.0): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing symfony/translation (v3.4.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing nesbot/carbon (1.22.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing mtdowling/cron-expression (v1.2.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing monolog/monolog (1.23.0): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing league/flysystem (1.0.41): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing laravel/framework (v5.5.23): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing fideloper/proxy (3.3.4): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing jakub-onderka/php-console-color (0.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing nikic/php-parser (v3.1.2): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing jakub-onderka/php-console-highlighter (v0.3.2): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing dnoegel/php-xdg-base-dir (0.1): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing psy/psysh (v0.8.15): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	  - Installing laravel/tinker (v1.0.2): 
+ DEBUG [57753d4a] 	Loading from cache
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	Generating optimized autoload files
+ DEBUG [57753d4a] 	> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	> @php artisan package:discover
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	Discovered Package: fideloper/proxy
+Discovered Package: laravel/tinker
+Package manifest generated successfully.
+ DEBUG [57753d4a] 	> @php artisan config:cache
+ DEBUG [57753d4a] 	Configuration cache cleared!
+ DEBUG [57753d4a] 	
+ DEBUG [57753d4a] 	Configuration cached successfully!
+ DEBUG [57753d4a] 	
+  INFO [57753d4a] Finished in 69.960 seconds with exit status 0 (successful).
+  INFO [fceb95e6] Running chmod 0777 /var/capistrano/staging/releases/20171215090447/storage as root@php
+ DEBUG [fceb95e6] Command: chmod 0777 /var/capistrano/staging/releases/20171215090447/storage
+  INFO [fceb95e6] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [95fe1af1] Running /usr/bin/env ln -s /var/capistrano/staging/releases/20171215090447 /var/capistrano/staging/releases/current as root@php
+ DEBUG [95fe1af1] Command: /usr/bin/env ln -s /var/capistrano/staging/releases/20171215090447 /var/capistrano/staging/releases/current
+  INFO [95fe1af1] Finished in 0.093 seconds with exit status 0 (successful).
+  INFO [57243473] Running /usr/bin/env mv /var/capistrano/staging/releases/current /var/capistrano/staging as root@php
+ DEBUG [57243473] Command: /usr/bin/env mv /var/capistrano/staging/releases/current /var/capistrano/staging
+  INFO [57243473] Finished in 0.065 seconds with exit status 0 (successful).
+ DEBUG [cad623c9] Running /usr/bin/env ls -x /var/capistrano/staging/releases as root@php
+ DEBUG [cad623c9] Command: /usr/bin/env ls -x /var/capistrano/staging/releases
+ DEBUG [cad623c9] 	20171215072820	20171215072919	20171215073404	20171215075047	20171215075529
+20171215090447
+ DEBUG [cad623c9] Finished in 0.052 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on php
+ DEBUG [e21d980e] Running [ -d /var/capistrano/staging/current ] as root@php
+ DEBUG [e21d980e] Command: [ -d /var/capistrano/staging/current ]
+ DEBUG [e21d980e] Finished in 0.051 seconds with exit status 0 (successful).
+ DEBUG [7ef05c6f] Running /usr/bin/env readlink /var/capistrano/staging/current as root@php
+ DEBUG [7ef05c6f] Command: /usr/bin/env readlink /var/capistrano/staging/current
+ DEBUG [7ef05c6f] 	/var/capistrano/staging/releases/20171215090447
+ DEBUG [7ef05c6f] Finished in 0.051 seconds with exit status 0 (successful).
+  INFO [4ed42c74] Running /usr/bin/env rm -rf /var/capistrano/staging/releases/20171215072820 as root@php
+ DEBUG [4ed42c74] Command: /usr/bin/env rm -rf /var/capistrano/staging/releases/20171215072820
+  INFO [4ed42c74] Finished in 0.494 seconds with exit status 0 (successful).
+ DEBUG [b0d723ce] Running if test ! -d /var/capistrano/staging/releases; then echo "Directory does not exist '/var/capistrano/staging/releases'" 1>&2; false; fi as root@php
+ DEBUG [b0d723ce] Command: if test ! -d /var/capistrano/staging/releases; then echo "Directory does not exist '/var/capistrano/staging/releases'" 1>&2; false; fi
+ DEBUG [b0d723ce] Finished in 0.021 seconds with exit status 0 (successful).
+  INFO [f209736b] Running /usr/bin/env echo "Branch develop (at 51dcfc4fa35a0c2d7c1bfa4148d18f70b243eea0) deployed as release 20171215090447 by " >> /var/capistrano/staging/revisions.log as root@php
+ DEBUG [f209736b] Command: cd /var/capistrano/staging/releases && /usr/bin/env echo "Branch develop (at 51dcfc4fa35a0c2d7c1bfa4148d18f70b243eea0) deployed as release 20171215090447 by " >> /var/capistrano/staging/revisions.log
+  INFO [f209736b] Finished in 0.060 seconds with exit status 0 (successful).
